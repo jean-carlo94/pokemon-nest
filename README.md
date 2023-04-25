@@ -17,7 +17,7 @@
 yarn install
 ```
 
-3 Tener Next CLI instalado
+3. Tener Next CLI instalado
 
 ```
 npm i -g @nestjs/cli
