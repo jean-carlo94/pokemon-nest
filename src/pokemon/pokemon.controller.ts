@@ -6,8 +6,6 @@ import {
   Patch,
   Param,
   Delete,
-  HttpCode,
-  HttpStatus,
 } from '@nestjs/common';
 import { PokemonService } from './pokemon.service';
 import { CreatePokemonDto } from './dto/create-pokemon.dto';
@@ -31,16 +29,19 @@ export class PokemonController {
 
   @Get(':term')
   findOne(@Param('term') id: string) {
-    return this.pokemonService.findOne( id );
+    return this.pokemonService.findOne(id);
   }
 
   @Patch(':term')
-  update(@Param('term') term: string, @Body() updatePokemonDto: UpdatePokemonDto) {
-    return this.pokemonService.update( term, updatePokemonDto);
+  update(
+    @Param('term') term: string,
+    @Body() updatePokemonDto: UpdatePokemonDto,
+  ) {
+    return this.pokemonService.update(term, updatePokemonDto);
   }
 
   @Delete(':id')
   remove(@Param('id', ParseMongoIdPipe) id: string) {
-    return this.pokemonService.remove( id );
+    return this.pokemonService.remove(id);
   }
 }
